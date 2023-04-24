@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from verify_email.email_handler import send_verification_email
 
 from item.models import Category, Item
 from .forms import SignupForm
@@ -19,7 +20,8 @@ def signup(request):
         form = SignupForm(request.POST)
 
         if form.is_valid():
-            form.save()
+            inactive_user = send_verification_email(request, form)
+            #form.save()
 
             return redirect('/login/')
     else:

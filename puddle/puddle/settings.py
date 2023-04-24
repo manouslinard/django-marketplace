@@ -30,7 +30,9 @@ ALLOWED_HOSTS = []
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
-# Application definition
+VERIFICATION_SUCCESS_TEMPLATE = None
+
+#  Application definition
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -43,6 +45,7 @@ INSTALLED_APPS = [
     "item",
     "dashboard",
     "conversation",
+    "verify_email.apps.VerifyEmailConfig",
 ]
 
 MIDDLEWARE = [
@@ -121,4 +124,16 @@ MEDIA_ROOT = BASE_DIR / "media"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
+MAX_RETRIES = 100
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your@email.com'
+EMAIL_HOST_PASSWORD = 'password'
+
+DEFAULT_FROM_EMAIL = 'noreply<no_reply@domain.com>'
