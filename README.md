@@ -17,3 +17,11 @@ password: pass123
 username: user
 <br>
 password: pass123456
+
+---
+## Email Verification:
+To enable email verificaton, create a .env file in projects root (/puddle) - same directory as the sqlite3 database. Then, declare following values:
+```
+EMAIL_ACC=your_email
+EMAIL_KEY=your_email_key
+```
