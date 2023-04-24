@@ -11,4 +11,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("dashboard/", include('dashboard.urls')),
     path("inbox/", include('conversation.urls')),
+    path('verification/', include('verify_email.urls')),
 ] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
