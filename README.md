@@ -25,3 +25,4 @@ To enable email verificaton, create a .env file in projects root (/puddle) - sam
 EMAIL_ACC=your_email
 EMAIL_KEY=your_email_key
 ```
+It is important for the .env file to stay in the .gitignore file (so no sensitive information is leaked). Any further sensitive variables should be handled in this way.
