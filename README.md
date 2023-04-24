@@ -1,4 +1,5 @@
-To make a python venv, run:
+## Creation of Python Venv:
+You should initialize the python venv in the same folder as requirements.txt (initial repo folder).<br>To create a python venv, run:
 ```
 python3 -m venv env
 ```
