@@ -8,6 +8,22 @@ Then to activate it:
 source env/bin/activate
 ```
 ---
+## Psql Config:
+To create required db, run:
+```
+createdb -h localhost -p 5432 -U postgres marketplace
+```
+It is also important to set the postgres user's password to 'pass123' for django app to work.<br>
+To delete created db, run:
+```
+dropdb -h localhost -p 5432 -U postgres realestate
+```
+There is also a data.json file which has default values for db. To load it, run:
+```
+python manage.py migrate --run-syncdb
+python manage.py loaddata data.json
+```
+---
 ## User accounts:
 ### Default admin account:
 username: admin
