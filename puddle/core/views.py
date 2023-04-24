@@ -23,9 +23,12 @@ def signup(request):
             inactive_user = send_verification_email(request, form)
             #form.save()
 
-            return redirect('/login/')
+            return redirect('/verify_page/')
     else:
         form = SignupForm()
     return render(request, 'core/signup.html', {
         'form':form,
     })
+
+def verify_page(request):
+    return render(request, 'core/verify.html')
