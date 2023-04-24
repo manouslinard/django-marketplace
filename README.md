@@ -16,9 +16,9 @@ createdb -h localhost -p 5432 -U postgres marketplace
 It is also important to set the postgres user's password to 'pass123' for django app to work.<br>
 To delete created db, run:
 ```
-dropdb -h localhost -p 5432 -U postgres realestate
+dropdb -h localhost -p 5432 -U postgres marketplace
 ```
-There is also a data.json file which has default values for db. To load it, run:
+There is also a data.json file which has default values for db. To load it, run on the project's folder (puddle folder where the data.json file is):
 ```
 python manage.py migrate --run-syncdb
 python manage.py loaddata data.json
@@ -37,7 +37,7 @@ password: pass123456
 
 ---
 ## Email Verification:
-To enable email verificaton, create a .env file in projects root (/puddle) - same directory as the sqlite3 database. Then, declare following values:
+To enable email verificaton, create a .env file in projects root (/puddle) - same directory as the data.json file. Then, declare following values:
 ```
 EMAIL_ACC=your_email
 EMAIL_KEY=your_email_key
