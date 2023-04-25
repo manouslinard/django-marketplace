@@ -17,6 +17,7 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+load_dotenv()
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -89,7 +90,7 @@ DATABASES = {
         "NAME": os.environ.get("POSTGRES_DB", BASE_DIR / "db.sqlite3"),
         "USER": os.environ.get("POSTGRES_USER", "user"),
         "PASSWORD": os.environ.get("POSTGRES_PASSWORD", "password"),
-        "HOST": os.environ.get("SQL_HOST", "localhost"),
+        "HOST": os.environ.get("SQL_HOST", "localhost"),    # if no sql_host is configured -> localhost (sql_host is initialized only in docker-compose)
         "PORT": os.environ.get("SQL_PORT", "5432"),
     }
 }

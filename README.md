@@ -1,3 +1,4 @@
+# Prerequisites
 ## Creation of Python Venv:
 You should initialize the python venv in the same folder as requirements.txt (initial repo folder).<br>To create a python venv, run:
 ```
@@ -21,14 +22,13 @@ password: pass123456
 
 ---
 ## Environment Variables:
-All the environmnent variables used in this project are inside the file: .env.dev (located in the same directory as docker-compose.yml). The fields required in this file are:
+All the environmnent variables used in this project are inside the file: .env (located in the app directory - the same as data.json). The fields required in this file are:
 ```
 DEBUG=1
 SECRET_KEY=<your_secret_key>
 DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
 SQL_ENGINE=django.db.backends.postgresql
 DATABASE=postgres
-SQL_HOST=db
 SQL_PORT=5432
 POSTGRES_USER=<name_of_psql_user>
 POSTGRES_PASSWORD=<password_of_psql_user>
@@ -38,9 +38,10 @@ EMAIL_KEY=<your_email_key>
 ```
 The EMAIL_ACC and EMAIL_KEY variables are used to send email verification. Make sure to have configured your email account correctly so it will be available to send email verifications.
 <br>
-It is important for the .env.dev file to stay in the .gitignore file (so no sensitive information is leaked). Any further sensitive variables should be handled in this way.
+It is important for the .env file to stay in the .gitignore file (so no sensitive information is leaked). Any further sensitive variables should be handled in this way.
 
 ---
+# Docker Execution
 ## Docker Compose:
 To build the docker-compose file, run:
 ```
@@ -67,6 +68,15 @@ To connect to running docker image, run:
 docker exec -it <container_id> sh
 ```
 Then you can view its contents like normal ubuntu terminal.
+
+---
+# Local Execution
+## Run app (without Docker):
+To run the app without docker compose, go to the app's folder (/puddle) and run:
+```
+python manage.py runserver
+```
+This should run the app without the need for docker compose.
 
 ---
 ## Psql Local Config:
