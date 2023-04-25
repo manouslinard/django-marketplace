@@ -8,7 +8,68 @@ Then to activate it:
 source env/bin/activate
 ```
 ---
-## Psql Config:
+## User accounts:
+### Default admin account:
+username: admin
+<br>
+password: pass123
+
+### Default user account:
+username: user
+<br>
+password: pass123456
+
+---
+## Environment Variables:
+All the environmnent variables used in this project are inside the file: .env.dev. The fields required in this file are:
+```
+DEBUG=1
+SECRET_KEY=<your_secret_key>
+DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+SQL_ENGINE=django.db.backends.postgresql
+SQL_DATABASE=hello_django_dev
+SQL_USER=hello_django
+SQL_PASSWORD=hello_django
+SQL_HOST=db
+SQL_PORT=5432
+DATABASE=postgres
+EMAIL_ACC=<your_email>
+EMAIL_KEY=<your_email_key>
+```
+The EMAIL_ACC and EMAIL_KEY variables are used to send email verification. Make sure to have configured your email account correctly so it will be available to send email verifications.
+<br>
+It is important for the .env file to stay in the .gitignore file (so no sensitive information is leaked). Any further sensitive variables should be handled in this way.
+
+---
+## Docker Compose:
+To build the docker-compose file, run:
+```
+docker-compose build
+```
+Then to run the image, run:
+```
+docker-compose up -d
+```
+To stop, run:
+```
+docker-compose down -v
+```
+You can check if the docker works correctly by visiting http://localhost:8000/
+
+---
+## Docker Handling:
+To get the container id, run:
+```
+docker ps
+```
+To connect to running docker image, run:
+```
+docker exec -it <container_id> sh
+```
+Then you can view its contents like normal ubuntu terminal.
+
+---
+## Psql Local Config:
 To create required db, run:
 ```
 createdb -h localhost -p 5432 -U postgres marketplace
@@ -22,65 +83,4 @@ There is also a data.json file which has default values for db. To load it, run 
 ```
 python manage.py migrate --run-syncdb
 python manage.py loaddata data.json
-```
----
-## User accounts:
-### Default admin account:
-username: admin
-<br>
-password: pass123
-
-### Default user account:
-username: user
-<br>
-password: pass123456
-
----
-## Email Verification:
-To enable email verificaton, create a .env file in projects root (/puddle) - same directory as the data.json file. Then, declare following values:
-```
-EMAIL_ACC=your_email
-EMAIL_KEY=your_email_key
-```
-It is important for the .env file to stay in the .gitignore file (so no sensitive information is leaked). Any further sensitive variables should be handled in this way.
-
----
-## Docker Image Creation/Handling:
-To create a docker image of this app, run in the same directory as Dockerfile:
-```
-docker build -t django-marketplace .
-```
-Then, to run the image, execute:
-```
-docker run -p 8000:8000 -it --env-file=puddle/.env django-marketplace
-```
-This command also loads the .env file to the dockerfile - so it is not saved inside of the image (currently .env file is on gitignore).
-<br>
-To get the container id, run:
-```
-docker ps
-```
-To connect to running docker image, run:
-```
-docker exec -it <container_id> sh
-```
-Then you can view its contents like normal ubuntu terminal.<br>
-To delete the image (entirely), run the following:
-```
-docker stop $(docker ps -a -q --filter ancestor=django-marketplace --format="{{.ID}}")
-docker rm $(docker ps -a -q --filter ancestor=django-marketplace --format="{{.ID}}")
-docker rmi django-marketplace
-```
-## Docker Compose:
-To build, run:
-```
-docker-compose build
-```
-Then to run the image, run:
-```
-docker-compose up -d
-```
-To stop, run:
-```
-docker-compose down -v
 ```
