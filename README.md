@@ -27,12 +27,12 @@ DEBUG=1
 SECRET_KEY=<your_secret_key>
 DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
 SQL_ENGINE=django.db.backends.postgresql
-SQL_DATABASE=hello_django_dev
-SQL_USER=hello_django
-SQL_PASSWORD=hello_django
+DATABASE=postgres
 SQL_HOST=db
 SQL_PORT=5432
-DATABASE=postgres
+POSTGRES_USER=<name_of_psql_user>
+POSTGRES_PASSWORD=<password_of_psql_user>
+POSTGRES_DB=<name_of_psql_db>
 EMAIL_ACC=<your_email>
 EMAIL_KEY=<your_email_key>
 ```
