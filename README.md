@@ -71,3 +71,16 @@ docker stop $(docker ps -a -q --filter ancestor=django-marketplace --format="{{.
 docker rm $(docker ps -a -q --filter ancestor=django-marketplace --format="{{.ID}}")
 docker rmi django-marketplace
 ```
+## Docker Compose:
+To build, run:
+```
+docker-compose build
+```
+Then to run the image, run:
+```
+docker-compose up -d
+```
+To stop, run:
+```
+docker-compose down -v
+```
