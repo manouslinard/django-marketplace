@@ -80,6 +80,7 @@ This should run the app without the need for docker compose.
 
 ---
 ## Psql Local Config:
+In the development phase, <name_of_psql_db> = markeplace, thus the following commads:<br>
 To create required db, run:
 ```
 createdb -h localhost -p 5432 -U postgres marketplace
