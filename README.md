@@ -21,7 +21,7 @@ password: pass123456
 
 ---
 ## Environment Variables:
-All the environmnent variables used in this project are inside the file: .env.dev. The fields required in this file are:
+All the environmnent variables used in this project are inside the file: .env.dev (located in the same directory as docker-compose.yml). The fields required in this file are:
 ```
 DEBUG=1
 SECRET_KEY=<your_secret_key>
@@ -38,7 +38,7 @@ EMAIL_KEY=<your_email_key>
 ```
 The EMAIL_ACC and EMAIL_KEY variables are used to send email verification. Make sure to have configured your email account correctly so it will be available to send email verifications.
 <br>
-It is important for the .env file to stay in the .gitignore file (so no sensitive information is leaked). Any further sensitive variables should be handled in this way.
+It is important for the .env.dev file to stay in the .gitignore file (so no sensitive information is leaked). Any further sensitive variables should be handled in this way.
 
 ---
 ## Docker Compose:
