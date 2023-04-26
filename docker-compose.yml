@@ -6,8 +6,10 @@ services:
     command: gunicorn --bind 0.0.0.0:8000 puddle.wsgi --chdir /usr/src/puddle/
     volumes:
       - ./puddle/:/usr/src/puddle/
-    ports:
-      - 8000:8000
+      - static_volume:/home/app/web/staticfiles
+      - media_volume:/usr/src/puddle/media/
+    expose:
+      - 8000
     env_file:
       - ./puddle/.env
     environment:
@@ -20,7 +22,16 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
       - ./puddle/.env
-
-
+  nginx:
+    build: ./puddle/nginx
+    ports:
+      - 1337:80
+    depends_on:
+      - web
+    volumes:
+      - static_volume:/home/app/web/staticfiles
+      - media_volume:/usr/src/puddle/media/
 volumes:
   postgres_data:
+  static_volume:
+  media_volume:

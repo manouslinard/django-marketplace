@@ -24,7 +24,7 @@ password: pass123456
 ## Environment Variables:
 All the environmnent variables used in this project are inside the file: .env (located in the app directory - the same as data.json). The fields required in this file are:
 ```
-DEBUG=1
+DEBUG=<set values 1 or 0, where 1 is true and 0 false>
 SECRET_KEY=<your_secret_key>
 DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
 SQL_ENGINE=django.db.backends.postgresql
@@ -55,8 +55,8 @@ To stop, run:
 ```
 docker-compose down -v
 ```
-You can check if the docker works correctly by visiting http://localhost:8000/
-
+You can check if the docker works correctly by visiting http://localhost:1337/
+Also, you can set env variable DEBUG = 0 (false), because all the media files are served from nginx and gunicorn in docker.
 ---
 ## Docker Handling:
 To get the container id, run:
@@ -76,7 +76,7 @@ To run the app without docker compose, go to the app's folder (/puddle) and run:
 ```
 python manage.py runserver
 ```
-This should run the app without the need for docker compose.
+This should run the app without the need for docker compose (works only with env var DEBUG=1, because propably nginx and gunicorn is not configured to your local machine - here is a [tutorial](https://pylessons.com/django-deployment) to configure it).
 
 ---
 ## Psql Local Config:
