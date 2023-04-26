@@ -6,7 +6,7 @@ services:
     command: gunicorn --bind 0.0.0.0:8000 puddle.wsgi --chdir /usr/src/puddle/
     volumes:
       - ./puddle/:/usr/src/puddle/
-      - static_volume:/home/app/web/staticfiles
+      - static_volume:/usr/src/puddle/static/
       - media_volume:/usr/src/puddle/media/
     expose:
       - 8000
@@ -29,7 +29,7 @@ services:
     depends_on:
       - web
     volumes:
-      - static_volume:/home/app/web/staticfiles
+      - static_volume:/usr/src/puddle/static/
       - media_volume:/usr/src/puddle/media/
 volumes:
   postgres_data:

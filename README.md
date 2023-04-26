@@ -56,7 +56,9 @@ To stop, run:
 docker-compose down -v
 ```
 You can check if the docker works correctly by visiting http://localhost:1337/
+<br>
 Also, you can set env variable DEBUG = 0 (false), because all the media files are served from nginx and gunicorn in docker.
+
 ---
 ## Docker Handling:
 To get the container id, run:
@@ -76,7 +78,7 @@ To run the app without docker compose, go to the app's folder (/puddle) and run:
 ```
 python manage.py runserver
 ```
-This should run the app without the need for docker compose (works only with env var DEBUG=1, because propably nginx and gunicorn is not configured to your local machine - here is a [tutorial](https://pylessons.com/django-deployment) to configure it).
+This should run the app on http://localhost:8000/ without the need for docker compose (works only with env var DEBUG=1, because propably nginx and gunicorn is not configured to your local machine - here is a [tutorial](https://pylessons.com/django-deployment) to configure it).
 
 ---
 ## Psql Local Config:
