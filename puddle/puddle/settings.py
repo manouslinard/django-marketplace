@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     "item",
     "dashboard",
     "conversation",
-    "verify_email.apps.VerifyEmailConfig",
+    "verify_email",
 ]
 
 MIDDLEWARE = [
