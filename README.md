@@ -39,7 +39,7 @@ EMAIL_KEY=<your_email_key>
 ```
 The EMAIL_ACC and EMAIL_KEY variables are used to send email verification. Make sure to have configured your email account correctly so it will be available to send email verifications. 
 <br>
-Also, in PAGE_DOMAIN variable, you put your website domain (it is used for the link for email verification). In docker, page domain is http://localhost:1337/ while in local run it is http://localhost:8000/
+Also, in PAGE_DOMAIN variable, you put your website domain (it is used for the link for email verification). The project's page domain is usually http://localhost:8000/
 <br>
 It is important for the .env file to stay in the .gitignore file (so no sensitive information is leaked). Any further sensitive variables should be handled in this way.
 
@@ -58,7 +58,7 @@ To stop, run:
 ```
 docker-compose down -v
 ```
-You can check if the docker works correctly by visiting http://localhost:1337/
+You can check if the docker works correctly by visiting http://localhost:8000/
 <br>
 Also, you can set env variable DEBUG = 0 (false), because all the media files are served from nginx and gunicorn in docker.
 
