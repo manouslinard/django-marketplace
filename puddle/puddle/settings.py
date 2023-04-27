@@ -144,6 +144,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 load_dotenv()
 
+EMAIL_PAGE_DOMAIN = os.environ.get("PAGE_DOMAIN", "http://localhost:8000/")
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587

@@ -40,6 +40,7 @@ class TokenManager(signing.TimestampSigner):
 
     def __init__(self):
         self.settings = GetFieldFromSettings()
+        self.page_domain = self.settings.get('email_page_domain', raise_exception=True)
         self.max_age = self.settings.get('max_age', raise_exception=False)
         self.max_reties = self.settings.get('max_retries') + 1
         self._time_units = ['s', 'm', 'h', 'd']
@@ -180,9 +181,12 @@ class TokenManager(signing.TimestampSigner):
         token = self.__generate_token(inactive_user)
         encoded_email = urlsafe_b64encode(str(user_email).encode('utf-8')).decode('utf-8')
 
-        link = f"/verification/user/verify-email/{encoded_email}/{token}/"
+        link = f"verification/user/verify-email/{encoded_email}/{token}/"
 
-        absolute_link = request.build_absolute_uri(link)
+        absolute_link = self.page_domain + link
+
+        #absolute_link = request.build_absolute_uri(link)
+        #absolute_link = absolute_link.replace('localhost', 'localhost:1337')
         # print(f"ABSOLUTE LINK: {absolute_link}")
         return absolute_link
 

@@ -45,6 +45,11 @@ class GetFieldFromSettings:
                 'noreply<noreply@gmail.com>',
             ),
 
+            'email_page_domain' : (
+                'EMAIL_PAGE_DOMAIN',
+                "http://localhost:8000/"
+            ),
+
             'login_page': (
                 'LOGIN_URL',
                 'accounts_login'
