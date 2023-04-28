@@ -34,7 +34,7 @@ password: pass123456
 All the environmnent variables used in this project are inside the file: .env (located in the app directory - the same as data.json). The fields required in this file are:
 ```
 DEBUG=<set values 1 or 0, where 1 is true and 0 false>
-PAGE_DOMAIN=<your_page_domain>
+PAGE_DOMAIN=http://localhost:8000/
 SECRET_KEY=<your_secret_key>
 DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
 SQL_ENGINE=django.db.backends.postgresql
@@ -90,7 +90,7 @@ To run the app without docker compose, go to the app's folder (/puddle) and run:
 ```
 python manage.py runserver
 ```
-This should run the app on http://localhost:8000/ without the need for docker compose (works only with env var DEBUG=1, because propably nginx and gunicorn is not configured to your local machine - here is a [tutorial](https://pylessons.com/django-deployment) to configure it).
+This should run the app on http://localhost:8000/ without the need for docker compose (works only with env var DEBUG=1, because probably nginx and gunicorn is not configured to your local machine - here is a [tutorial](https://pylessons.com/django-deployment) to configure it).
 
 ---
 ## Psql Local Config:
