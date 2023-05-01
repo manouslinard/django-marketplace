@@ -27,7 +27,7 @@ load_dotenv()
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.56.111']
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = "/"
